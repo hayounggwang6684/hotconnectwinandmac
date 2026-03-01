@@ -7,9 +7,16 @@ hotconnectwinandmac/
 ├─ requirements.txt
 ├─ README.md
 ├─ win_push/
-│  └─ main.py
+│  ├─ __init__.py
+│  ├─ main.py
+│  ├─ clipboard_watcher.py
+│  ├─ preview_dialog.py
+│  └─ save_service.py
 └─ mac_clip/
-   └─ main.py
+   ├─ __init__.py
+   ├─ main.py
+   ├─ watcher.py
+   └─ clipboard_setter.py
 ```
 
 ## 2) 의존성
@@ -30,7 +37,7 @@ python -m pip install -r requirements.txt
 ### A. Windows 앱: `win_push`
 - 클립보드 시퀀스를 주기적으로 확인합니다.
 - 새 이미지가 들어오면 PySide6 미리보기 다이얼로그를 띄웁니다.
-- 사용자가 저장(Save)을 누르면 `Z:\`에 `shot_YYYYMMDD_HHMMSS.jpg` 형식으로 저장합니다.
+- 사용자가 저장(Save)을 누르면 `Z:\`에 `YYYYMMDD_HHMMSS.jpg` 형식으로 저장합니다.
 
 실행:
 ```bash
@@ -49,7 +56,7 @@ python mac_clip/main.py
 ## 4) MVP 수용 기준 (Acceptance Criteria)
 1. Windows에서 클립보드에 이미지 복사 시 미리보기 창이 열린다.
 2. 미리보기에서 Save 클릭 시 JPEG 파일이 `Z:\`에 저장된다.
-3. 파일명은 타임스탬프(`shot_YYYYMMDD_HHMMSS.jpg`) 형식이다.
+3. 파일명은 타임스탬프(`YYYYMMDD_HHMMSS.jpg`) 형식이다.
 4. macOS에서 `~/IncomingShots`에 새 JPEG 파일이 생성되면 자동으로 클립보드 이미지가 갱신된다.
 5. 두 앱 모두 단독 실행 가능하며, Ctrl+C 또는 창 종료로 안전하게 중단 가능하다.
 
