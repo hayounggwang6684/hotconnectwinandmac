@@ -12,7 +12,7 @@ def main():
     app = QApplication(sys.argv)
     watcher = ClipboardWatcher(Path("Z:\\"))
     watcher.start()
-    sys.exit(app.exec())
+    app.exec()
 
 
 if __name__ == "__main__":

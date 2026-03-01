@@ -19,7 +19,7 @@ class PreviewDialog(QDialog):
         preview.setMinimumSize(400, 300)
 
         buttons = QDialogButtonBox(
-            QDialogButtonBox.StandardButton.Save | QDialogButtonBox.StandardButton.Cancel
+            QDialogButtonBox.StandardButton.Yes | QDialogButtonBox.StandardButton.No
         )
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)

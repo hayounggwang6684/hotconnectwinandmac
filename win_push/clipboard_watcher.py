@@ -22,7 +22,7 @@ class ClipboardWatcher:
         self.last_seq = win32clipboard.GetClipboardSequenceNumber()
 
         self.timer = QTimer()
-        self.timer.setInterval(800)
+        self.timer.setInterval(500)
         self.timer.timeout.connect(self.check_clipboard)
 
     def start(self):
